@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +39,12 @@ class _FirebaseaddcartdetailsState extends State<Firebaseaddcartdetails> {
                       const SnackBar(
                         content: Text('Item successfully ordered'),
                         duration: Duration(seconds: 2),
+                        
                       ),
+                      
+                    );
+                    Navigator.pop(
+                      context,
                     );
 
                   

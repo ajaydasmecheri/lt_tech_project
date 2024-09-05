@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lt_technologies_project/root_setup/routers.dart';
@@ -80,6 +81,11 @@ class _RegisterpageState extends State<Registerpage> {
           
                      
                         await FirebaseAuth.instance.createUserWithEmailAndPassword(email: remail.text.trim(), password: rpassword.text.trim());
+                        await FirebaseFirestore.instance.collection("userinfo").add({
+                          "email":remail.text.trim(),
+                          "password":rpassword.text.trim(),
+                          "userid":FirebaseAuth.instance.currentUser?.email,
+                        });
               
                         
           
