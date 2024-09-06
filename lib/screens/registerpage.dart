@@ -53,8 +53,11 @@ class _RegisterpageState extends State<Registerpage> {
               Padding(
                 padding: const EdgeInsets.only(right: 15, left: 15),
                 child: TextField(
+                  maxLength: 10,
                   controller: rpassword,
                   decoration: InputDecoration(
+                    
+                    
                       hintText: "password",
                       icon: const Icon(Icons.lock),
                       border: OutlineInputBorder(
@@ -78,6 +81,8 @@ class _RegisterpageState extends State<Registerpage> {
                     
           
                     try {
+
+                      
           
                      
                         await FirebaseAuth.instance.createUserWithEmailAndPassword(email: remail.text.trim(), password: rpassword.text.trim());
@@ -86,15 +91,10 @@ class _RegisterpageState extends State<Registerpage> {
                           "password":rpassword.text.trim(),
                           "userid":FirebaseAuth.instance.currentUser?.email,
                         });
-              
-                        
-          
-                    } on FirebaseAuthException catch (e) {
-                      print(e.toString());
-                    }
-          
-          
-                    showDialog(
+
+
+
+                        showDialog(
                       context: context,
                        builder: (context)
                        {
@@ -107,6 +107,14 @@ class _RegisterpageState extends State<Registerpage> {
                           ],
                         );
                        });
+              
+                        
+          
+                    } on FirebaseAuthException catch (e) {
+                      print(e.toString());
+
+                    }
+          
           
           
           
