@@ -40,19 +40,24 @@ class Profile extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 4),
                       child: Center(
-                        child: Card(
-                          elevation: 3,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child:Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("email id : ${userdata["email"]}"),
-                                Text(" password ${userdata["password"]}"),
-                                
-                              ],
+                        child: Column(
+                          children: [
+                            const Icon(Icons.person, size: 100,),
+                            Card(
+                              elevation: 3,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child:Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("email id : ${userdata["email"]}"),
+                                    Text(" password ${userdata["password"]}"),
+                                    
+                                  ],
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     );
